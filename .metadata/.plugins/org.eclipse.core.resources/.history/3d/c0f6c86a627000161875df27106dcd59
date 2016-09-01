@@ -47,6 +47,6 @@ public class Calculate {
 		int a = (num1 * num3);
 		int b = ((num1 * num4) + (num2 * num3));
 		int c = (num2 * num4);
-		return ("\"" + a + var + "^2" + b + var + c + "\"");
+		return ("\"" + a + var + "^2" + " + " + b + var +" + " + c + "\"");
 	}
 }

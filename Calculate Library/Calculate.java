@@ -47,6 +47,38 @@ public class Calculate {
 		int a = (num1 * num3);
 		int b = ((num1 * num4) + (num2 * num3));
 		int c = (num2 * num4);
-		return ("\"" + a + var + "^2" + b + var + c + "\"");
+		return ("\"" + a + var + "^2" + " + " + b + var + " + " + c + "\"");
+	}
+
+	public static boolean isDivisibleBy(int num1, int num2) {
+		if (num1 % num2 == 0) {
+			return (true);
+		} else {
+			return (false);
+		}
+	}
+
+	public static double absValue(double num) {
+		if (num > 0) {
+			return (num);
+		} else {
+			return (num * -1);
+		}
+	}
+
+	public static int max(int num1, int num2) {
+		if (num1 > num2) {
+			return (num1);
+		} else {
+			return (num2);
+		}
+	}
+
+	public static double max(double num1, double num2, double num3){
+		if(num1 > num2 && num 1 > num3){
+			return(num1);
+		}else if(num2 > num1 && num2 > num3){
+			return(num2)
+		}
 	}
 }
