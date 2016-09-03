@@ -93,9 +93,7 @@ public class Calculate {
 	}
 
 	public static double round2(double num) {
-		num = num * 100;
-		num = (int) num;
-		double round = moveDecimals / 100.0;
-		return (round);
+		num = num * 100 + .5;
+		return ((int) num / 100.0);
 	}
 }

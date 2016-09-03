@@ -23,6 +23,6 @@ public class DoMath {
 		System.out.println(Calculate.max(6,4));
 		System.out.println(Calculate.max(100,9,7));
 		System.out.println(Calculate.min(1, 2));
-		System.out.println(Calculate.round2(3927.9445));
+		System.out.println(Calculate.round2(27.9485));
 	}
 }
