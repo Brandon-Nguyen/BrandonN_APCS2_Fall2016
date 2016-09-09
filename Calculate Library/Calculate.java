@@ -96,4 +96,12 @@ public class Calculate {
 		num = num * 100 + .5;
 		return ((int) num / 100.0);
 	}
+
+	public static double exponent(double num1, int num2) {
+		double sum = num1;
+		for (int i = 1; i < num2; i++) {
+			sum = num1 * sum;
+		}
+		return (sum);
+	}
 }
