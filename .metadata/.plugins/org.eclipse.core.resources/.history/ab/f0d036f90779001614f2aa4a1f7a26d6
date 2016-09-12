@@ -116,8 +116,7 @@ public class Calculate {
 	public static boolean isPrime(int num) {
 		int divisor = 2;
 		for (int i = divisor; divisor == num; divisor++) {
-			isDivisibleBy(num, divisor);
+			isDivisibleby(num, divisor);
 		}
-		return
 	}
 }

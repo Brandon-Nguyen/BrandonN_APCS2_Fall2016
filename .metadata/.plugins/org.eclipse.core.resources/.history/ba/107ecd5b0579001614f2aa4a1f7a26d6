@@ -112,12 +112,4 @@ public class Calculate {
 		}
 		return (product);
 	}
-
-	public static boolean isPrime(int num) {
-		int divisor = 2;
-		for (int i = divisor; divisor == num; divisor++) {
-			isDivisibleBy(num, divisor);
-		}
-		return
-	}
 }

@@ -118,6 +118,6 @@ public class Calculate {
 		for (int i = divisor; divisor == num; divisor++) {
 			isDivisibleBy(num, divisor);
 		}
-		return
+		return(true);
 	}
 }

@@ -104,20 +104,11 @@ public class Calculate {
 		}
 		return (sum);
 	}
-
-	public static int factorial(int num) {
+	public static int factorial(int num){
 		int product = 1;
-		for (int i = 1; i <= num; i++) {
+		for(int i = 1; i <= num; i++){
 			product = product * i;
 		}
-		return (product);
-	}
-
-	public static boolean isPrime(int num) {
-		int divisor = 2;
-		for (int i = divisor; divisor == num; divisor++) {
-			isDivisibleBy(num, divisor);
-		}
-		return
+		return(product);
 	}
 }
