@@ -52,9 +52,9 @@ public class Calculate {
 
 	public static boolean isDivisibleBy(int num1, int num2) {
 		if (num1 % num2 == 0) {
-			return (true);
+			return true;
 		} else {
-			return (false);
+			return false;
 		}
 	}
 
@@ -114,10 +114,14 @@ public class Calculate {
 	}
 
 	public static boolean isPrime(int num) {
-		int divisor = 2;
-		for (int i = divisor; divisor == num; divisor++) {
-			isDivisibleBy(num, divisor);
+		boolean prime = true;
+		for (int i = 1; i < num; i++) {
+			if (Calculate.isDivisibleBy(num, i) == true) {
+				prime = true;
+			} else {
+				prime = false;
+			}
 		}
-		return
+		return prime;
 	}
 }
