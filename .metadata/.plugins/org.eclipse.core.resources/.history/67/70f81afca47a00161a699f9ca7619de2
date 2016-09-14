@@ -125,8 +125,8 @@ public class Calculate {
 
 	public static int gcf(int num1, int num2) {
 		int gcf = 1;
-		int smallNum = Calculate.min(num1, num2);
-		for (int i = 2; i < smallNum; i++) {
+		int largeNum = Calculate.max(num1, num2);
+		for (int i = 2; i < largeNum; i++) {
 			if (Calculate.isDivisibleBy(num1, i) && Calculate.isDivisibleBy(num2, i) == true) {
 				gcf = i;
 			}
@@ -135,6 +135,10 @@ public class Calculate {
 	}
 
 	public static double sqrt(double num) {
-
+		double start = (Calculate.exponent(10.00, 2));
+		while (Calculate.round2(start) != Math.sqrt(num)) {
+			start = 1.0 / 2.0 * (start + (num / start));
+		}
+		return (Calculate.round2(start));
 	}
 }

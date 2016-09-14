@@ -52,9 +52,9 @@ public class Calculate {
 
 	public static boolean isDivisibleBy(int num1, int num2) {
 		if (num1 % num2 == 0) {
-			return (true);
+			return true;
 		} else {
-			return (false);
+			return false;
 		}
 	}
 
@@ -95,5 +95,49 @@ public class Calculate {
 	public static double round2(double num) {
 		num = num * 100 + .5;
 		return ((int) num / 100.0);
+	}
+
+	public static double exponent(double num1, int num2) {
+		double product = 1;
+		for (int i = 1; i <= num2; i++) {
+			product = num1 * product;
+		}
+		return (product);
+	}
+
+	public static int factorial(int num) {
+		int product = 1;
+		for (int i = 1; i <= num; i++) {
+			product = product * i;
+		}
+		return (product);
+	}
+
+	public static boolean isPrime(int num) {
+		boolean prime = true;
+		for (int i = 2; i < num; i++) {
+			if (Calculate.isDivisibleBy(num, i) == true) {
+				prime = false;
+			}
+		}
+		return prime;
+	}
+
+	public static int gcf(int num1, int num2) {
+		int gcf = 1;
+		for (int i = 2; i < num1; i++) {
+			if (Calculate.isDivisibleBy(num1, i) && Calculate.isDivisibleBy(num2, i) == true) {
+				gcf = i;
+			}
+		}
+		return gcf;
+	}
+
+	public static double sqrt(double num) {
+		double start = (Calculate.exponent(10.00, 2));
+		while (Calculate.round2(start) != Math.sqrt(num)) {
+			start = 1.0 / 2.0 * (start + (num / start));
+		}
+		return (Calculate.round2(start));
 	}
 }

@@ -124,14 +124,17 @@ public class Calculate {
 	}
 
 	public static int gcf(int num1, int num2) {
-		int gcf = 1;
 		int smallNum = Calculate.min(num1, num2);
-		for (int i = 2; i < smallNum; i++) {
-			if (Calculate.isDivisibleBy(num1, i) && Calculate.isDivisibleBy(num2, i) == true) {
-				gcf = i;
+		int largeNum = Calculate.max(num1, num2);
+		int factor = 1;
+		while (smallNum != factor) {
+			smallNum = largeNum - smallNum;
+			smallNum = factor;
+			if (smallNum > largeNum) {
+				largeNum = smallNum;
 			}
 		}
-		return gcf;
+		return factor;
 	}
 
 	public static double sqrt(double num) {
