@@ -98,11 +98,11 @@ public class Calculate {
 	}
 
 	public static double exponent(double num1, int num2) {
-		double sum = num1;
-		for (int i = 1; i < num2; i++) {
-			sum = num1 * sum;
+		double product = 1;
+		for (int i = 1; i <= num2; i++) {
+			product = num1 * product;
 		}
-		return (sum);
+		return (product);
 	}
 
 	public static int factorial(int num) {
@@ -115,13 +115,29 @@ public class Calculate {
 
 	public static boolean isPrime(int num) {
 		boolean prime = true;
-		for (int i = 1; i < num; i++) {
+		for (int i = 2; i < num; i++) {
 			if (Calculate.isDivisibleBy(num, i) == true) {
-				prime = true;
-			} else {
 				prime = false;
 			}
 		}
 		return prime;
+	}
+
+	public static int gcf(int num1, int num2) {
+		int smallNum = Calculate.min(num1, num2);
+		int largeNum = Calculate.max(num1, num2);
+		int factor = 1;
+		while (smallNum != factor) {
+			smallNum = largeNum - smallNum;
+			smallNum = factor;
+			if (smallNum > largeNum) {
+				largeNum = smallNum;
+			}
+		}
+		return factor;
+	}
+
+	public static double sqrt(double num) {
+
 	}
 }
