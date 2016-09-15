@@ -51,6 +51,9 @@ public class Calculate {
 	}
 
 	public static boolean isDivisibleBy(int num1, int num2) {
+		if (num2 == 0) {
+			throw new IllegalArgumentException("num can't be zero.");
+		}
 		if (num1 % num2 == 0) {
 			return true;
 		} else {
@@ -98,6 +101,9 @@ public class Calculate {
 	}
 
 	public static double exponent(double num1, int num2) {
+		if (num2 < 0) {
+			throw new IllegalArgumentException("num can't be negative.");
+		}
 		double product = 1;
 		for (int i = 1; i <= num2; i++) {
 			product = num1 * product;
@@ -106,6 +112,9 @@ public class Calculate {
 	}
 
 	public static int factorial(int num) {
+		if (num < 0) {
+			throw new IllegalArgumentException("num can't be negative.");
+		}
 		int product = 1;
 		for (int i = 1; i <= num; i++) {
 			product = product * i;
@@ -135,6 +144,18 @@ public class Calculate {
 	}
 
 	public static double sqrt(double num) {
-
+		if (num < 0) {
+			throw new IllegalArgumentException("num can't be negative.");
+		}
+		double x = 1;
+		while (x * x > (num + .1) || x * x < (num - .1)) {
+			while (x * x < num) {
+				x = x + .01;
+			}
+			if (x * x > num) {
+				x = x - .01;
+			}
+		}
+		return (Calculate.round2(x));
 	}
 }
