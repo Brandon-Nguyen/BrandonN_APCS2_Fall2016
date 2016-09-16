@@ -158,4 +158,21 @@ public class Calculate {
 		}
 		return (Calculate.round2(x));
 	}
+
+	public static String quadForm(int num1, int num2, int num3) {
+		String answer = "";
+		double discrim = Calculate.discriminant(num1, num2, num3);
+		if (discrim < 0) {
+			return ("no real roots");
+		}
+		double answer1 = ((-num2) + Calculate.sqrt(discrim)) / (2 * num1);
+		double answer2 = ((-num2) - Calculate.sqrt(discrim)) / (2 * num1);
+		if (answer1 == answer2) {
+			answer += answer1;
+			return (answer);
+		} else {
+			answer = "\"" + Calculate.round2(answer1) + " and " + Calculate.round2(answer2) + "\"";
+			return (answer);
+		}
+	}
 }
