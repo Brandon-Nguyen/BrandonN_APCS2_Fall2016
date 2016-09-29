@@ -1,11 +1,5 @@
-/**
- * 
- */
+// Brandon Nguyen, 2nd Period, 9/23/16
 
-/**
- * @author APCS2
- *
- */
 public class Calculate {
 	public static int square(int number) {
 		return (number * number);

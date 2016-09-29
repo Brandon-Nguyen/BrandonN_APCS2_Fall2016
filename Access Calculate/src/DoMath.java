@@ -1,11 +1,5 @@
-/**
- * 
- */
+// Brandon Nguyen, 2nd Period, 9/23/16
 
-/**
- * @author APCS2
- *
- */
 public class DoMath {
 	public static void main(String[] args){
 		System.out.println(Calculate.square(5));
