@@ -12,9 +12,11 @@ public class CollaborativeProgrammingExercise {
 		int inputNum;
 		for(int i = 0; i < 10; i++){
 			inputNum = userInput.nextInt();
-			
-			if(inputNum % 2 == 0 && inputNum > largestEvenNum){
-				inputNum = largestEvenNum;
+			if(inputNum % 2 == 0){
+				if(inputNum > largestEvenNum);
+					inputNum = largestEvenNum;
+					evenSum += inputNum;
+				}
 				evenSum += inputNum;
 			}else if(inputNum > max){
 				max = inputNum;
