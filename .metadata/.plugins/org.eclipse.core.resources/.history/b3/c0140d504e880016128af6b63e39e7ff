@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class CollabProgramming {
+	public static void main(String[] args){
+		Scanner userInput = new Scanner(System.in);
+		
+		int evenSum = 0;
+		int max = 0;
+		int min = max;
+		int largestEvenNum = max;
+		int inputNum;
+		for(int i = 0; i < 5; i++){
+			System.out.print("Enter an integer: ");
+			inputNum = userInput.nextInt();
+			if(inputNum % 2 == 0){
+				if(inputNum > largestEvenNum){
+					largestEvenNum = inputNum;
+				}
+				evenSum += inputNum;
+			}
+			if(inputNum > max){
+				max = inputNum;
+			}
+			if(inputNum < min){
+				min = inputNum;
+			}
+		}
+		System.out.println("Max: " + max);
+		System.out.println("Min: " + min);
+		System.out.println("Sum of Even Numbers: " + evenSum);
+		System.out.println("Largest Even Number: " + largestEvenNum);
+	}
+}
