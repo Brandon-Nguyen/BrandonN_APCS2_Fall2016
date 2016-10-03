@@ -14,14 +14,13 @@ public class CollabProgramming {
 		
 		// Initializing variables used
 		int evenSum = 0;
-		// initializes max, min, and the largest even number to the first number of the string of numbers
 		int max = Integer.parseInt(stringNum[0]);
 		int min = max;
 		int largestEvenNum = max;
 		
 		//For loop that goes through the String array
 		for(int i = 0; i < stringNum.length; i++){
-			//Changes the numbers in the string to integers so that they can be used
+			//Changes the numbers in the string to ints so that they can be used
 			int input = Integer.parseInt(stringNum[i]);
 			if(input % 2 == 0){
 				if(input > largestEvenNum){
