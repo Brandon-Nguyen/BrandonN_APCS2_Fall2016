@@ -1,4 +1,4 @@
-// Brandon Nguyen, 10/2/16, 3rd Period
+// Brandon Nguyen, 10/1/16, 3rd Period
 import java.util.*;
 
 public class CollabProgramming {
@@ -39,8 +39,7 @@ public class CollabProgramming {
 				min = input;
 			}
 		}
-		//Prints out the largest number out of the string, the smallest,  
-		//the sum of the even numbers, and the largest even number.
+		
 		System.out.println("Max: " + max);
 		System.out.println("Min: " + min);
 		System.out.println("Sum of Even Numbers: " + evenSum);
