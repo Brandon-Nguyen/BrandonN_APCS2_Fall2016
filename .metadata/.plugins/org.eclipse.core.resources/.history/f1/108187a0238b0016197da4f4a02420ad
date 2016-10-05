@@ -16,8 +16,7 @@ public class CollabProgramming {
 		// Initializing variables used
 		int evenSum = 0;
 		
-		// sets max, and largest even number as small numbers which 
-		//will be changed later on in the code
+		// sets max, and largest even number as small numbers which will be changed later on in the code
 		int max = -100;
 		int largestEvenNum = -100;
 		

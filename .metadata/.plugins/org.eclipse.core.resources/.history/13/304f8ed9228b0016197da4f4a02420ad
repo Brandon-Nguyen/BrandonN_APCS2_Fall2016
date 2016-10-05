@@ -46,7 +46,7 @@ public class Calculate {
 		return ("\"" + (numerator / denominator) + "_" + (numerator % denominator) + "/" + denominator + "\"");
 	}
 
-	// uses foil to multiply the binomials out
+	// uses foil to change the binomials into
 	public static String foil(int num1, int num2, int num3, int num4, String var) {
 		int a = (num1 * num3);
 		int b = ((num1 * num4) + (num2 * num3));
@@ -54,20 +54,18 @@ public class Calculate {
 		return ("\"" + a + var + "^2" + " + " + b + var + " + " + c + "\"");
 	}
 
-	// checks to see if the first number could be evenly divided by the second
-	// number
-	public static boolean isDivisibleBy(int numerator, int denominator) {
-		if (denominator == 0) {
+	// divides
+	public static boolean isDivisibleBy(int num1, int num2) {
+		if (num2 == 0) {
 			throw new IllegalArgumentException("num can't be zero.");
 		}
-		if (numerator % denominator == 0) {
+		if (num1 % num2 == 0) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	// returns the absolute value of the input number
 	public static double absValue(double num) {
 		if (num > 0) {
 			return (num);
@@ -76,7 +74,6 @@ public class Calculate {
 		}
 	}
 
-	// returns the larger number between the two inputs
 	public static int max(int num1, int num2) {
 		if (num1 > num2) {
 			return (num1);
@@ -85,7 +82,6 @@ public class Calculate {
 		}
 	}
 
-	// returns the largest number between the three input numbers
 	public static double max(double num1, double num2, double num3) {
 		if (num1 > num2 && num1 > num3) {
 			return (num1);
@@ -96,7 +92,6 @@ public class Calculate {
 		}
 	}
 
-	// reutrns the smallest number between the two input numbers
 	public static int min(int num1, int num2) {
 		if (num1 > num2) {
 			return (num2);
@@ -105,38 +100,33 @@ public class Calculate {
 		}
 	}
 
-	// rounds the input number to the smallest hundreds place
 	public static double round2(double num) {
 		num = num * 100 + .5;
 		return ((int) num / 100.0);
 	}
 
-	// multiplies the base by itself for how many times the exponent calls for
-	public static double exponent(double base, int exponent) {
-		if (exponent < 0) {
+	public static double exponent(double num1, int num2) {
+		if (num2 < 0) {
 			throw new IllegalArgumentException("num can't be negative.");
 		}
 		double product = 1;
-		for (int i = 1; i <= exponent; i++) {
-			product = base * product;
+		for (int i = 1; i <= num2; i++) {
+			product = num1 * product;
 		}
 		return (product);
 	}
 
-	// starts from 1 and multiplies every number between one and the max inputed
-	public static int factorial(int max) {
-		if (max < 0) {
+	public static int factorial(int num) {
+		if (num < 0) {
 			throw new IllegalArgumentException("num can't be negative.");
 		}
 		int product = 1;
-		for (int i = 1; i <= max; i++) {
+		for (int i = 1; i <= num; i++) {
 			product = product * i;
 		}
 		return (product);
 	}
 
-	// checks to see if the number inputed can be divided by any number other
-	// than itself and one
 	public static boolean isPrime(int num) {
 		boolean prime = true;
 		for (int i = 2; i < num; i++) {
@@ -147,7 +137,6 @@ public class Calculate {
 		return prime;
 	}
 
-	// looks for the greatest common factor between the two numbers inputed
 	public static int gcf(int num1, int num2) {
 		int gcf = 1;
 		int smallNum = Calculate.min(num1, num2);
@@ -159,40 +148,32 @@ public class Calculate {
 		return gcf;
 	}
 
-	// finds the square root of the number to the hundreds place
-	public static double sqrt(double square) {
-		if (square < 0) {
+	public static double sqrt(double num) {
+		if (num < 0) {
 			throw new IllegalArgumentException("num can't be negative.");
 		}
-		double squareRoot = 1;
-		while (squareRoot * squareRoot > (square + .1) || squareRoot * squareRoot < (square - .1)) {
-			while (squareRoot * squareRoot < square) {
-				squareRoot = squareRoot + .01;
+		double x = 1;
+		while (x * x > (num + .1) || x * x < (num - .1)) {
+			while (x * x < num) {
+				x = x + .01;
 			}
-			if (squareRoot * squareRoot > square) {
-				squareRoot = squareRoot - .01;
+			if (x * x > num) {
+				x = x - .01;
 			}
 		}
-		return (Calculate.round2(squareRoot));
+		return (Calculate.round2(x));
 	}
 
-	// uses the quadratic formula to solve for the inputs of a, b, and c
-	public static String quadForm(int a, int b, int c) {
+	public static String quadForm(int num1, int num2, int num3) {
 		String answer = "";
-		double discrim = Calculate.discriminant(a, b, c);
+		double discrim = Calculate.discriminant(num1, num2, num3);
 		if (discrim < 0) {
 			return ("no real roots");
 		}
-		double answer1 = ((-b) + Calculate.sqrt(discrim)) / (2 * a);
-		double answer2 = ((-b) - Calculate.sqrt(discrim)) / (2 * a);
-		// if the answers are the same, then it only returns one answer, but if
-		// they aren't
-		// then it returns the smallest number before the larger number
+		double answer1 = ((-num2) + Calculate.sqrt(discrim)) / (2 * num1);
+		double answer2 = ((-num2) - Calculate.sqrt(discrim)) / (2 * num1);
 		if (answer1 == answer2) {
 			answer += answer1;
-			return (answer);
-		} else if (answer1 > answer2) {
-			answer = "\"" + Calculate.round2(answer2) + " and " + Calculate.round2(answer1) + "\"";
 			return (answer);
 		} else {
 			answer = "\"" + Calculate.round2(answer1) + " and " + Calculate.round2(answer2) + "\"";
