@@ -49,9 +49,9 @@ public class Magpie3 {
 			
 		}else if(findKeyword(statement, "boba") >= 0){
 			response = "Where is your favorite place to get boba? I like Eggettes the most.";
+			
 		}else if(findKeyword(statement, "") == 0){
 			response = "Come on, why don't you say something? :(";
-			
 		}else{
 			response = getRandomResponse();
 		}
