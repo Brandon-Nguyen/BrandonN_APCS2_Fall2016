@@ -8,7 +8,7 @@ public class Magpie3 {
 	/*
 	 * done 1) Copy and paste the code you wrote in Magpie 2 into the getResponse method
 	 * 
-	 * done 2) Then *change* getResponse to use .findKeyword(String statement,String keyword) instead of .findKeyword(statement, (String keyword)	 
+	 * 2) Then *change* getResponse to use .findKeyword(String statement,String keyword) instead of .findKeyword(statement, (String keyword)	 
 	 *  
 	 * done 3) Copy and paste the 2 new noncommittal responses you wrote in part 2 into getRandomResponse();
 	 * 
@@ -49,8 +49,7 @@ public class Magpie3 {
 			
 		}else if(findKeyword(statement, "boba") >= 0){
 			response = "Where is your favorite place to get boba? I like Eggettes the most.";
-			
-		}else if(statement.length() == 0){
+		}else if(findKeyword(statement, "") == 0){
 			response = "Come on, why don't you say something? :(";
 			
 		}else{

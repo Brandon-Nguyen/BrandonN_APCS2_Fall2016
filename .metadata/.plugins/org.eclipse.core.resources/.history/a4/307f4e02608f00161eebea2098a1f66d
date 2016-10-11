@@ -8,7 +8,7 @@ public class Magpie3 {
 	/*
 	 * done 1) Copy and paste the code you wrote in Magpie 2 into the getResponse method
 	 * 
-	 * done 2) Then *change* getResponse to use .findKeyword(String statement,String keyword) instead of .findKeyword(statement, (String keyword)	 
+	 * 2) Then *change* getResponse to use .findKeyword(String statement,String keyword) instead of .findKeyword(statement, (String keyword)	 
 	 *  
 	 * done 3) Copy and paste the 2 new noncommittal responses you wrote in part 2 into getRandomResponse();
 	 * 
