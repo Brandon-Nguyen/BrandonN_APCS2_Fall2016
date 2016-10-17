@@ -58,7 +58,6 @@ public class Magpie4 {
 			
 		}else if (findKeyword(statement, "I want", 0) >= 0){
 			response = transformIWantSomethingStatement(statement);
-			
 		}else if(findKeyword(statement,"I", 0) >= 0 && findKeyword(statement,"you", 0) >= 0){
 			response = transformISomethingYouStatement(statement);
 			
@@ -95,12 +94,10 @@ public class Magpie4 {
 		String restOfStatement = statement.substring(psn + 9).trim();
 		return "What would it mean to " + restOfStatement + "?";
 	}
-	
 	/* takes a statement with "I want <something>." and transforms it into 
 	 * "Would you really be happy if you had <something>?"
 	 */
 	private String transformIWantSomethingStatement(String statement){
-		// Remove the final period, if there is one
 		statement = statement.trim();
 		String lastChar = statement.substring(statement.length()- 1);
 		if(lastChar.equals(".")){
@@ -136,7 +133,6 @@ public class Magpie4 {
 	}
 	
 	private String transformISomethingYouStatement(String statement){
-		// Remove the final period, if there is one
 		statement = statement.trim();
 		String lastChar = statement.substring(statement.length() - 1);
 		if(lastChar.equalsIgnoreCase(".")){
@@ -219,8 +215,7 @@ public class Magpie4 {
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
-		
-		// Possible responses to return which are completely random
+
 		if (whichResponse == 0) {
 			response = "Interesting, tell me more.";
 		} else if (whichResponse == 1) {

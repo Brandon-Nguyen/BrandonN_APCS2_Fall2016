@@ -46,7 +46,7 @@ public class Magpie4 {
 		}else if(findKeyword(statement, "cake") >= 0){
 			response = "I love cake. I would eat it all day long!";
 			
-		}else if(findKeyword(statement, "boba") >= 0){
+		}else if(findKeyword(statement, "boba ") >= 0){
 			response = "Where is your favorite place to get boba? I like Eggettes the most.";
 			
 		}else if(statement.length() == 0){
