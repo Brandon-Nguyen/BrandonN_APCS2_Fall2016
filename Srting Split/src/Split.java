@@ -5,6 +5,13 @@ public class Split
 
 	public static void main(String[] args) 
 	{
+		System.out.println(Arrays.toString(splitBread("Ilikebreadbaconbreadwoo")));
+		System.out.println(Arrays.toString("breadapplespineapplesbreadlettustomatobaconmayohambreadcheesebread".split("bread")));
+		
+		System.out.println("The second method");
+		
+		System.out.println(Arrays.toString(splitSpaces("apples pineapples bread lettus tomato bacon mayo ham bread cheese")));
+	}
 		//String.split();
 		//It's a method that acts on a string, <StringName>.split(<String sp>);
 		//Where sp is the string where the string splits
@@ -16,28 +23,26 @@ public class Split
 		
 		//play around with String.split! what happens if you "I reallyreally like apples".split("really") ?
 		
-		
-		System.out.println(Arrays.toString(splitBread("applespineapplesbreadlettustomatobaconmayohambreadcheese")));
-		System.out.println(Arrays.toString("applespineapplesbreadlettustomatobaconmayohambreadcheese".split(" ")));
-		
-		System.out.println("The second method");
-		
-		System.out.println(Arrays.toString(splitSpaces("apples pineapples bread lettus tomato bacon mayo ham bread cheese")));
-		
 		//Your task:
 		/*Write a method that take in a string like "applespineapplesbreadlettustomatobaconmayohambreadcheese" 
 		 * describing a sandwich use String.split to split up the sandwich by the word "bread" 
 		 * and return what's in the middle of the sandwich and ignores what's on the outside
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
-	}
 	public static String[] splitBread(String statement){
-		
+		if(statement.split("bread").length < 2){
+			throw new IllegalArgumentException("Thats not enough bread to make a sandwich :(");
+		}
+
 		// Array for the return of the statement in between the breads
 		String[] breadArr = statement.split("bread");
 		
 		//Creates array that will return the correct statement
-		String[] breadReturn = new String[breadArr.length - 2];
+		if(statement.lastIndexOf("bread") == statement.length() - 5){
+			String[]breadReturn = new String[breadArr.length - 1];
+		}else{
+			String[] breadReturn = new String[breadArr.length - 2];
+		}
 		
 		//Looks for the middle between the bread then returns that 
 		for(int i = 0; i < breadReturn.length; i++){
@@ -63,8 +68,17 @@ public class Split
 		
 		//converts the array to a string to put it into the method for bread to 
 		//get rid of the breads and return whats inside
-		String[] noSpacesOrBread = splitBread(Arrays.toString(spaceSplit));
+		String[] noSpacesOrBread = splitBread(spaceSplit).length;
+		System.out.println(Arrays.toString(noSpacesOrBread));
+		System.out.println(noSpacesOrBread.length);
+		System.out.println(Arrays.toString(splitBread(Arrays.toString(spaceSplit))));
 		
+		/*String[] finalArr = new String[noSpacesOrBread.length - 2];
+		
+		for(int i = 0; i < finalArr.length; i++){
+			finalArr[i] = noSpacesOrBread[i + 1];
+		}
+		*/
 		return noSpacesOrBread;
 		
 	}
