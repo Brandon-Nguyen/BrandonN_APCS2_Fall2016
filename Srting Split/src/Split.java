@@ -17,8 +17,12 @@ public class Split
 		//play around with String.split! what happens if you "I reallyreally like apples".split("really") ?
 		
 		
-		System.out.println(Arrays.toString(mysplit("applesbreadpineapplesbreadlettustomatobaconmayohambreadcheese", "bread")));
-		System.out.println(Arrays.toString("applesbreadpineapplesbreadlettustomatobaconmayohambreadcheese".split("bread")));
+		System.out.println(Arrays.toString(splitBread("applespineapplesbreadlettustomatobaconmayohambreadcheese")));
+		System.out.println(Arrays.toString("applespineapplesbreadlettustomatobaconmayohambreadcheese".split(" ")));
+		
+		System.out.println("The second method");
+		
+		System.out.println(Arrays.toString(splitSpaces("apples pineapples bread lettus tomato bacon mayo ham bread cheese")));
 		
 		//Your task:
 		/*Write a method that take in a string like "applespineapplesbreadlettustomatobaconmayohambreadcheese" 
@@ -27,10 +31,10 @@ public class Split
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
 	}
-	public static String[] mysplit(String breadPhrase, String split){
+	public static String[] splitBread(String statement){
 		
 		// Array for the return of the statement in between the breads
-		String[] breadArr = breadPhrase.split("bread");
+		String[] breadArr = statement.split("bread");
 		
 		//Creates array that will return the correct statement
 		String[] breadReturn = new String[breadArr.length - 2];
@@ -47,12 +51,26 @@ public class Split
 		//if there is no bread after this end here
 		
 		//Your task pt 2:
-		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" describing a sandwich
-		 * use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of the sandwich and ignores what's on the outside
+		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" 
+		 * describing a sandwich use String.split to split up the sandwich at the spaces, " ", and 
+		 * return what's in the middle of the sandwich and ignores what's on the outside
 		 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 		*/
-
+	public static String[] splitSpaces(String statement){
+		//creates a statement that gets rid of the spaces
+		String[] spaceSplit = statement.split(" ");
+		System.out.println(Arrays.toString(spaceSplit));
 		
+		//converts the array to a string to put it into the method for bread to 
+		//get rid of the breads and return whats inside
+		String[] noSpacesOrBread = splitBread(Arrays.toString(spaceSplit));
+		
+		return noSpacesOrBread;
+		
+	}
+
+	
+
 
 }
 
