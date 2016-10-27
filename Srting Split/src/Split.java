@@ -5,12 +5,20 @@ public class Split
 
 	public static void main(String[] args) 
 	{
-		System.out.println(Arrays.toString(splitBread("Ilikebreadbaconbread")));
-		System.out.println(Arrays.toString("applespineapplesbreadlettustomatobaconmayohambreadcheesebread".split("bread")));
+		System.out.println(Arrays.toString(splitBread("breadbreadbread")));
+		System.out.println(Arrays.toString(splitBread("breadhamletucebreadbacon")));
+		System.out.println(Arrays.toString(splitBread("baconbreadhamletucebreadbread")));
+		System.out.println(Arrays.toString(splitBread("breadhamletucebreadbreadbreadbread")));
+		System.out.println(Arrays.toString(splitBread("breadhamletucebreadbreadbreadbread")));
 		
 		System.out.println("The second method");
 		
-		System.out.println(Arrays.toString(splitSpaces("apples pineapples bread lettus tomato bacon mayo ham bread cheese")));
+		System.out.println(Arrays.toString(splitSpaces("bread bacon ham lettuce bread cheese bread bread")));
+		System.out.println(Arrays.toString(splitSpaces("bread bacon ham lettuce bread cheese bread bread")));
+		System.out.println(Arrays.toString(splitSpaces("bread bacon ham lettuce bread cheese bread bread")));
+		System.out.println(Arrays.toString(splitSpaces("bread bacon ham lettuce bread cheese bread bread")));
+		System.out.println(Arrays.toString(splitSpaces("bread bacon ham lettuce bread cheese bread bread")));
+		
 	}
 		//String.split();
 		//It's a method that acts on a string, <StringName>.split(<String sp>);
@@ -39,7 +47,7 @@ public class Split
 		
 		//Creates array that will return the correct statement
 		String[] breadReturn;
-		if(statement.lastIndexOf("bread") == statement.length() - 5){
+		if(statement.lastIndexOf("bread") >= statement.length() - 10){
 			breadReturn = new String[breadArr.length - 1];
 		}else{
 			breadReturn = new String[breadArr.length - 2];
@@ -63,23 +71,19 @@ public class Split
 		 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 		*/
 	public static String[] splitSpaces(String statement){
-		//creates a statement that gets rid of the spaces
+		//gets rid of the spaces then puts it into an array
 		String[] spaceSplit = statement.split(" ");
-		System.out.println(Arrays.toString(spaceSplit));
+		
+		// makes a new statement without spaces to input into another split
+		String newStatement = "";
+		for(int i = 0; i < spaceSplit.length;i++){
+			newStatement += spaceSplit[i];
+		}
 		
 		//converts the array to a string to put it into the method for bread to 
 		//get rid of the breads and return whats inside
-		String[] noSpacesOrBread = splitBread(spaceSplit).length;
-		System.out.println(Arrays.toString(noSpacesOrBread));
-		System.out.println(noSpacesOrBread.length);
-		System.out.println(Arrays.toString(splitBread(Arrays.toString(spaceSplit))));
+		String[] noSpacesOrBread = splitBread(newStatement);
 		
-		/*String[] finalArr = new String[noSpacesOrBread.length - 2];
-		
-		for(int i = 0; i < finalArr.length; i++){
-			finalArr[i] = noSpacesOrBread[i + 1];
-		}
-		*/
 		return noSpacesOrBread;
 		
 	}
