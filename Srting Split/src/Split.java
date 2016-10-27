@@ -5,8 +5,8 @@ public class Split
 
 	public static void main(String[] args) 
 	{
-		System.out.println(Arrays.toString(splitBread("Ilikebreadbaconbreadwoo")));
-		System.out.println(Arrays.toString("breadapplespineapplesbreadlettustomatobaconmayohambreadcheesebread".split("bread")));
+		System.out.println(Arrays.toString(splitBread("Ilikebreadbaconbread")));
+		System.out.println(Arrays.toString("applespineapplesbreadlettustomatobaconmayohambreadcheesebread".split("bread")));
 		
 		System.out.println("The second method");
 		
@@ -38,10 +38,11 @@ public class Split
 		String[] breadArr = statement.split("bread");
 		
 		//Creates array that will return the correct statement
+		String[] breadReturn;
 		if(statement.lastIndexOf("bread") == statement.length() - 5){
-			String[]breadReturn = new String[breadArr.length - 1];
+			breadReturn = new String[breadArr.length - 1];
 		}else{
-			String[] breadReturn = new String[breadArr.length - 2];
+			breadReturn = new String[breadArr.length - 2];
 		}
 		
 		//Looks for the middle between the bread then returns that 
