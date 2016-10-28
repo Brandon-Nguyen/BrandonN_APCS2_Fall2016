@@ -5,7 +5,10 @@ public class Split
 
 	public static void main(String[] args) 
 	{
-		splitBread("hamcheese");
+		// make multiple tests for each thing
+		// show code that played with
+		splitBread("applespineapplesbreadlettustomatobaconmayohambreadcheese");
+		splitBread("hambaconcheese");
 		
 		System.out.println("The second method");
 		
@@ -33,11 +36,18 @@ public class Split
 	
 	
 	public static void splitBread(String ingredients){
+		if(ingredients.indexOf("bread") < 0){
+			System.out.println("Thats not enough bread to make a sandwich :(");
+		}else{
 		//removes the first bread and the ingredients before it
 		String newIngredients = ingredients.substring(ingredients.indexOf("bread") + 5);
-		
 		//Checks to see if the statement has enough bread to make a sandwich
-		if((ingredients.indexOf("bread")) < 0 && (newIngredients.indexOf("bread") < 0)){
+		if(newIngredients.indexOf("bread") < 0){
+			System.out.println("Thats not enough bread to make a sandwich :(");
+		}
+		
+		
+		if(newIngredients.indexOf("bread") < 0){
 			System.out.println("Thats not enough bread to make a sandwich :(");
 		}
 		
