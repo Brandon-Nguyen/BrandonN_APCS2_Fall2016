@@ -1,3 +1,5 @@
+// Brandon Nguyen, 10/30/16, 2nd Period
+
 import java.util.Arrays;
 
 public class Split 
@@ -5,14 +7,39 @@ public class Split
 
 	public static void main(String[] args) 
 	{
-		// make multiple tests for each thing
+
 		// show code that played with
-		splitBread("applespineapplesbreadlettustomatobaconmayohambreadcheese");
-		splitBread("hambaconcheese");
+		System.out.println(Arrays.toString("I like apples!".split(" ")));
+		System.out.println(Arrays.toString("Bacon tastes really good. Bacon is amazing".split("Bacon")));
+		System.out.println(Arrays.toString("I really like really like really want red apples".split("really")));
+		System.out.println(Arrays.toString("I really really like bacon".split("really")));
+		System.out.println(Arrays.toString("I want boba. boba makes life so much better".split("boba")));
+		System.out.println(Arrays.toString("I like bacon and pancakes. I like waffles too!".split("like")));
+		
+		System.out.println("Real Code Below. Playing with Split Above");
+		
+		// make multiple tests for each thing
+		System.out.println(splitBread("applespineapplesbreadlettustomatobaconmayohambreadcheese"));
+		System.out.println(splitBread("breadbreadhambaconcheese"));
+		System.out.println(splitBread("hambaconbreadcheese"));
+		System.out.println(splitBread("hambaconbreadbreadcheesemoreham")); 
+		System.out.println(splitBread("hambreadbaconcheesebread"));
+		System.out.println(splitBread("breadhambreadbaconcheese"));
+		System.out.println(splitBread("hambreadbaconbreadcheese"));
+		System.out.println(splitBread("hambaconcheesebreadbread"));
+		
 		
 		System.out.println("The second method");
 		
-		splitSpaces("bread ham bread bacon");
+		splitSpacesAndBread("applespineapplesbreadlettustomatobaconmayohambreadcheese");
+		splitSpacesAndBread("breadbreadhambaconcheese");
+		splitSpacesAndBread("hambaconbreadcheese");
+		splitSpacesAndBread("hambaconbreadbreadcheesemoreham"); // prints two blanks
+		splitSpacesAndBread("hambreadbaconcheesebread");
+		splitSpacesAndBread("breadhambreadbaconcheese");
+		splitSpacesAndBread("hambreadbaconbreadcheese");
+		splitSpacesAndBread("hambaconcheesebreadbread");
+		
 		
 	}
 	
@@ -34,59 +61,31 @@ public class Split
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
 	
-	
-	public static void splitBread(String ingredients){
-		if(ingredients.indexOf("bread") < 0){
-			System.out.println("Thats not enough bread to make a sandwich :(");
-		}else{
-		//removes the first bread and the ingredients before it
-		String newIngredients = ingredients.substring(ingredients.indexOf("bread") + 5);
-		//Checks to see if the statement has enough bread to make a sandwich
-		if(newIngredients.indexOf("bread") < 0){
-			System.out.println("Thats not enough bread to make a sandwich :(");
-		}
+	public static String splitBread(String ingredients){
+		String sandwich = "";
 		
+		//adds a space before and after in order to make the statement not have 
+		//bread at the end of the statement or the beginning
+		String addSpaces = " " + ingredients + " ";
 		
-		if(newIngredients.indexOf("bread") < 0){
-			System.out.println("Thats not enough bread to make a sandwich :(");
-		}
+		String[] breadArr = addSpaces.split("bread");
 		
-		// Array for the return of the ingredients in between the breads
-		String[] breadArr = ingredients.split("bread");
-		
-		//prints out the ingredients if there are some before the first 
-		//bread and until the bread at the end there aren't any ingredients 
-		//after bread at the end
-		if (ingredients.indexOf("bread") > 0 && 
-				(newIngredients.lastIndexOf("bread") == newIngredients.length() - 5)){
-			for(int i = 1; i < breadArr.length; i++){
-				System.out.print(breadArr[i]);
-			}
-		//prints out everything in between the bread at the start and end if 
-		//there aren't any ingredients on the outside
-		}else if(ingredients.indexOf("bread") <= 5 && 
-				(ingredients.lastIndexOf("bread") >= ingredients.length() - 5)){
-			for(int i = 0; i < breadArr.length; i++){
-				System.out.print(breadArr[i]);
-			}
+		//Checks to see if the array is longer than 2
+		if(breadArr.length > 2){
 			
-		//prints the ingredients between the breads, but this is only if there are ingredients before and after
-		//the pieces of bread on the outside
-		}else if(ingredients.indexOf("bread") > 0){
+			//Assigns the parts of the bread array into the sandwich that will later be returned
 			for(int i = 1; i < breadArr.length - 1; i++){
-				System.out.print(breadArr[i]);
+				sandwich = breadArr[i];
 			}
-			
-		//prints the stuff between the first bread and before the last bread and ingredients after that
-		//there aren't any ingredients before the first bread and there are some after the last bread
 		}else{
-			for(int i = 0; i < breadArr.length-1; i++){
-				System.out.print(breadArr[i]);
-			}
+			
+			//There wasn't more than 2 peices of bread so return not enough
+			return("That's not enough bread to make a sandwich :(");
 		}
-		System.out.println("");
+		return sandwich;
 	}
-		
+	
+			
 		//if there is no "bread" before this start here.
 		//if there is no bread after this end here
 		
@@ -96,12 +95,20 @@ public class Split
 		 * return what's in the middle of the sandwich and ignores what's on the outside
 		 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 		*/
-	public static void splitSpaces(String ingredients){
+	public static void splitSpacesAndBread(String ingredients){
 		//gets rid of the spaces then puts it into an array
 		String[] spaceSplit = ingredients.split(" ");
 		
+		//Creates a statement that holds the split, and later, the sandwich
+		String sandwich = "";
+		for(int i = 0; i < spaceSplit.length; i++){
+			sandwich += spaceSplit[i];
+		}
+		
 		//inputs the array into splitBread to take out the sandwich
-		splitBread(Arrays.toString(spaceSplit));
+		sandwich = splitBread(sandwich);
+	
+		System.out.println(sandwich);
 	}
 }
 
