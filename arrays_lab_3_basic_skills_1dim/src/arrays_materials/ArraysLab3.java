@@ -39,10 +39,11 @@ public class ArraysLab3
 		
 		int[] appendArr = new int[arr.length + 1];
 		
-		appendArr = arr;
+		for(int i = 0; i < arr.length; i++){
+			appendArr[i] = arr[i];
+		}
 		
 		appendArr[appendArr.length - 1] = num;
-		
 		
 		System.out.println(Arrays.toString(appendArr));
 		
@@ -61,17 +62,20 @@ public class ArraysLab3
 		assert (arr.length >= 2);
 		
 		int[] removeArr = new int[arr.length - 1];
+		int isIndexDone = 0;
 		
-		for(int i = 0; i < removeArr.length; i++){
+		for(int i = 0; i < removeArr.length ; i++){
 			if(i == idx){
-				removeArr[i] = arr[i+1];
+				removeArr[i] = arr[i + 1];
+				isIndexDone ++;
+			}else if(isIndexDone > 0){
+				removeArr[i] = arr[i + 1];
 			}else{
 				removeArr[i] = arr[i];
 			}
+		
 		}
-		
 		System.out.println(Arrays.toString(removeArr));
-		
 		return removeArr;
 	}
 	
