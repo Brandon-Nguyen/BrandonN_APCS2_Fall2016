@@ -1,3 +1,5 @@
+// Brandon Nguyen, 11/5/16, 2nd Period
+
 package arrays_materials;
 
 import java.util.Arrays;
@@ -16,13 +18,16 @@ public class ArraysLab3
 		assert (arr2.length > 0);
 		assert (arr1.length == arr2.length);
 		
+		//creates an array that will be returned later
 		int[] sumArr = new int[arr1.length];
 		
+		//assings the values to the array by adding the values of both arrays at the index
 		for(int i = 0; i < sumArr.length; i++){
 			sumArr[i] = arr1[i] + arr2[i];
 		}
 		
-		System.out.println(Arrays.toString(sumArr));
+		/*//prints out the array to see what is inside
+		System.out.println(Arrays.toString(sumArr));*/
 		
 		return sumArr;
 	}
@@ -37,15 +42,19 @@ public class ArraysLab3
 	{
 		assert (arr.length > 0);
 		
+		//create an array with an extra space for the number being added into the array
 		int[] appendArr = new int[arr.length + 1];
 		
+		// adds the previous values of the array into the new array
 		for(int i = 0; i < arr.length; i++){
 			appendArr[i] = arr[i];
 		}
 		
+		//adds the input into the array after everything else had been filled up
 		appendArr[appendArr.length - 1] = num;
 		
-		System.out.println(Arrays.toString(appendArr));
+		/* //prints array to see if values are correct
+		System.out.println(Arrays.toString(appendArr));*/
 		
 		return appendArr;
 		
@@ -61,21 +70,31 @@ public class ArraysLab3
 	{
 		assert (arr.length >= 2);
 		
+		//creates an array with one less space to take out the index and return it
 		int[] removeArr = new int[arr.length - 1];
+		//checks to see if the index had been removed yet
 		int isIndexDone = 0;
 		
+		//fills in the new array with values from the old one
 		for(int i = 0; i < removeArr.length ; i++){
+			// when the index are the same its going to make the value at the index the next value over
 			if(i == idx){
 				removeArr[i] = arr[i + 1];
+				//makes it so that the indexing had been done
 				isIndexDone ++;
 			}else if(isIndexDone > 0){
+				//after index is done and value ordering is weird so continues to take from right side
 				removeArr[i] = arr[i + 1];
 			}else{
+				//if indexing had not been done yet and values are still in normal order
 				removeArr[i] = arr[i];
 			}
 		
 		}
-		System.out.println(Arrays.toString(removeArr));
+		
+		/* //prints out the array to check if values are similar
+		System.out.println(Arrays.toString(removeArr)); */
+		
 		return removeArr;
 	}
 	
@@ -88,14 +107,18 @@ public class ArraysLab3
 	{
 		assert (arr.length > 0);
 		
+		// creates the variable that stores the answer
 		int sum = 0;
+		
+		// goes through the array and picks out the numbers at even indexes and adds them to sum
 		for(int i = 0; i < arr.length; i++){
 			if(i % 2 == 0){
 				sum += arr[i];
 			}
 		}
 		
-		System.out.println(sum);
+		/* //prints out value to see if correct
+		System.out.println(sum);*/
 		
 		return sum;
 		
@@ -112,8 +135,11 @@ public class ArraysLab3
 	{
 		assert (arr.length > 0);
 		
+		// creates an integer that stores the last variable
 		int tempVar = arr[arr.length - 1];
 		
+		//starts at end of array and moves values from left to right, 
+		//then adds the last number when it hits the beginning of the array
 		for(int i = arr.length - 1; i >= 0; i--){
 			if(i == 0){
 				arr[i] = tempVar;
@@ -121,7 +147,10 @@ public class ArraysLab3
 				arr[i] = arr[i - 1];
 			}
 		}
-		System.out.println(Arrays.toString(arr));
+		
+		/* //prints out the value to see if similar to expected output
+		System.out.println(Arrays.toString(arr));*/
+		
 	}
 
 	/*
