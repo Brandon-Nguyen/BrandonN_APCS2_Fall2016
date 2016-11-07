@@ -1,10 +1,17 @@
 package fracCalc;
 
+import java.util.Scanner;
 public class FracCalc {
 
     public static void main(String[] args) 
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
+    	Scanner input = new Scanner(System.in);
+    	
+    	System.out.print("Enter a fraction string: ");
+    	String fractionStr = input.nextLine();
+    	
+    	produceAnswer(fractionStr);
 
     }
     
@@ -18,7 +25,13 @@ public class FracCalc {
     //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input)
     { 
-        // TODO: Implement this function to produce the solution to the input
+    	// TODO: Implement this function to produce the solution to the input
+    	String[] splitStr = input.split(" ");
+    	String firstOperand = splitStr[0];
+    	String operator = splitStr[1];
+    	String secondOperator = splitStr[2];
+        
+    	System.out.println(secondOperator);
         
         return "";
     }
