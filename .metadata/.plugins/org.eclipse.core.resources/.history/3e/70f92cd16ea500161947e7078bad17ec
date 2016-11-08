@@ -26,9 +26,6 @@ public class FracCalc {
     public static String produceAnswer(String input)
     { 
     	// TODO: Implement this function to produce the solution to the input
-    	
-    	//the user inputs the string with spaces in between 
-    	//so the code splits the string by the spaces to get everything
     	String[] splitStr = input.split(" ");
     	String firstOperand = splitStr[0];
     	String operator = splitStr[1];
